@@ -40,12 +40,7 @@ const routes = [
 	{
 		name: 'Profil',
 		path: '/profil',
-		component: () => import('@/views/Profil.vue')
-	},
-	{
-		name: 'Media',
-		path: '/media',
-		component: () => import('@/views/Media.vue')
+		component: () => import('@/views/ProfilVue.vue')
 	},
 	{
 		name: 'Parametres',

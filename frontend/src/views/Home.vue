@@ -29,6 +29,7 @@
 <script>
 import axios from 'axios';
 
+
 export default {
   data() {
     return {
@@ -46,8 +47,12 @@ export default {
         });
         console.log(response.data);
 
-        const token = response.data.token;
-        localStorage.setItem('token', response.data.token);
+          localStorage.setItem('token', response.data.token)
+          axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
+          if (!localStorage.getItem('token')) {
+              router.push('/login')
+            }
+          localStorage.removeItem('token')
 
 // Si la connexion réussit, définissez loginSuccess sur true
         this.loginSuccess = true;
